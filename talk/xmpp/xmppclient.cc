@@ -378,10 +378,9 @@ void XmppClient::Private::OnSocketRead() {
     if (bytes_read == 0)
       return;
 
-//#ifdef _DEBUG
+#ifdef _DEBUG
     client_->SignalLogInput(bytes, bytes_read);
-//#endif
-
+#endif
     engine_->HandleInput(bytes, bytes_read);
   }
 }

@@ -303,14 +303,14 @@ const StaticQName QN_NAME = { STR_EMPTY, "name" };
 const StaticQName QN_AFFILIATION = { STR_EMPTY, "affiliation" };
 const StaticQName QN_ROLE = { STR_EMPTY, "role" };
 
-#if defined(FEATURE_ENABLE_PSTN)
+//#if defined(FEATURE_ENABLE_PSTN)
 const StaticQName QN_VCARD_TEL = { NS_VCARD, "TEL" };
 const StaticQName QN_VCARD_VOICE = { NS_VCARD, "VOICE" };
 const StaticQName QN_VCARD_HOME = { NS_VCARD, "HOME" };
 const StaticQName QN_VCARD_WORK = { NS_VCARD, "WORK" };
 const StaticQName QN_VCARD_CELL = { NS_VCARD, "CELL" };
 const StaticQName QN_VCARD_NUMBER = { NS_VCARD, "NUMBER" };
-#endif
+//#endif
 
 const StaticQName QN_XML_LANG = { NS_XML, "lang" };
 
