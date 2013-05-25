@@ -63,7 +63,7 @@ namespace buzz {
 /////////////////////////////////////////////////////////////////////
 
 class XmppTask;
-
+    
 // XmppClientInterface is an abstract interface for sending and
 // handling stanzas.  It can be implemented for unit tests or
 // different network environments.  It will usually be implemented by
@@ -142,6 +142,11 @@ class XmppTask : public XmppTaskBase,
 
   virtual bool HandleStanza(const XmlElement* stanza) { return false; }
 
+  static XmlElement *MakeIq(const std::string& type,
+                              const Jid& to,
+                              const QName& qName,
+                              const std::string& task_id);
+
  protected:
   XmppReturnStatus SendStanza(const XmlElement* stanza);
   XmppReturnStatus SetResult(const std::string& code);
@@ -163,8 +168,6 @@ class XmppTask : public XmppTaskBase,
   static bool MatchRequestIq(const XmlElement* stanza, const std::string& type,
                              const QName& qn);
   static XmlElement *MakeIqResult(const XmlElement* query);
-  static XmlElement *MakeIq(const std::string& type,
-                            const Jid& to, const std::string& task_id);
 
   // Returns true if the task is under the specified rate limit and updates the
   // rate limit accordingly

@@ -108,12 +108,13 @@ const XmlElement* XmppTask::NextStanza() {
 
 XmlElement* XmppTask::MakeIq(const std::string& type,
                              const buzz::Jid& to,
+                             const QName& qName,
                              const std::string& id) {
   XmlElement* result = new XmlElement(QN_IQ);
   if (!type.empty())
     result->AddAttr(QN_TYPE, type);
   if (!to.IsEmpty())
-    result->AddAttr(QN_TO, to.Str());
+    result->AddAttr(qName, to.Str());
   if (!id.empty())
     result->AddAttr(QN_ID, id);
   return result;

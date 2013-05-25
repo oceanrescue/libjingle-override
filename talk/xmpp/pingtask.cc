@@ -60,7 +60,7 @@ int PingTask::ProcessStart() {
   // Send a ping if it's time.
   if (now >= next_ping_time_) {
     talk_base::scoped_ptr<buzz::XmlElement> stanza(
-        MakeIq(buzz::STR_GET, Jid(STR_EMPTY), task_id()));
+        MakeIq(buzz::STR_GET, Jid(STR_EMPTY), buzz::QN_TO, task_id()));
     stanza->AddElement(new buzz::XmlElement(QN_PING, true));
     SendStanza(stanza.get());
 

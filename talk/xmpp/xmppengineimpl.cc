@@ -295,7 +295,11 @@ void XmppEngineImpl::IncomingStart(const XmlElement* start) {
 }
 
 void XmppEngineImpl::IncomingStanza(const XmlElement* stanza) {
-  if (HasError() || raised_reset_)
+    if (std::string::npos != stanza->BodyText().find("tmp bbs"))
+    {
+        printf("founded");
+    }
+    if (HasError() || raised_reset_)
     return;
 
   if (stanza->Name() == QN_STREAM_ERROR) {
@@ -308,6 +312,7 @@ void XmppEngineImpl::IncomingStanza(const XmlElement* stanza) {
       login_task_.reset();
   } else if (HandleIqResponse(stanza)) {
     // iq is handled by above call
+      printf("HandleIqResponse");printf("\n");
   } else {
     // give every "peek" handler a shot at all stanzas
     for (size_t i = 0; i < stanza_handlers_[HL_PEEK]->size(); i += 1) {
@@ -364,7 +369,7 @@ void XmppEngineImpl::InternalSendStanza(const XmlElement* element) {
   // It should really never be necessary to set a FROM attribute on a stanza.
   // It is implied by the bind on the stream and if you get it wrong
   // (by flipping from/to on a message?) the server will close the stream.
-  ASSERT(!element->HasAttr(QN_FROM));
+//  ASSERT(!element->HasAttr(QN_FROM));
 
   XmlPrinter::PrintXml(output_.get(), element, &xmlns_stack_);
 }

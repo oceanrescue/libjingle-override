@@ -401,9 +401,9 @@ void XmppClient::Private::OnStateChange(int state) {
 }
 
 void XmppClient::Private::WriteOutput(const char* bytes, size_t len) {
-//#ifdef _DEBUG
+#ifdef _DEBUG
   client_->SignalLogOutput(bytes, len);
-//#endif
+#endif
 
   socket_->Write(bytes, len);
   // TODO: deal with error information
