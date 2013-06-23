@@ -353,7 +353,6 @@ namespace buzz {
     extern const char STR_PSTN_CONFERENCE_STATUS_HANGUP[];
     
     // Subscription
-    extern const char STR_SUBSCRIPTION_NONE[];
     extern const char STR_SUBSCRIBE[];
     extern const char STR_SUBSCRIBED[];
     extern const char STR_UNSUBSCRIBE[];

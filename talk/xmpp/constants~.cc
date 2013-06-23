@@ -386,7 +386,6 @@ namespace buzz {
     const char STR_PSTN_CONFERENCE_STATUS_HANGUP[] = "hangup";
     
     // Subscription
-    const char STR_SUBSCRIPTION_NONE[] = "none";
     const char STR_SUBSCRIBE[] = "subscribe";
     const char STR_SUBSCRIBED[] = "subscribed";
     const char STR_UNSUBSCRIBE[] = "unsubscribe";
